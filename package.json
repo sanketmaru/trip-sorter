@@ -1,0 +1,19 @@
+{
+  "name": "trip-sorter",
+  "version": "1.0.0",
+  "description": "Trip Sorter",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanketmaru/trip-sorter.git"
+  },
+  "author": "Sanket Maru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sanketmaru/trip-sorter/issues"
+  },
+  "homepage": "https://github.com/sanketmaru/trip-sorter#readme"
+}

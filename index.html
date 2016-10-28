@@ -1,0 +1,83 @@
+<html ng-app="TripSorter">
+
+<head>
+  <title>Trip Sorter</title>
+  <link href="./assets/css/home.css" rel="stylesheet" type="text/css"></link>
+  <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body ng-controller="TripSorterCtrl">
+
+  <div class="container">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="panel-title">Trip Sorter</h1>
+        <h5> Select a Departure City and Arrival City to plan your journey </h5>
+        <h5> Make use of the quick filters to find the best options </h5>
+      </div>
+      <div class="panel-body">
+
+        <div class="row">
+          <div class="col-xs-12">
+            
+            From:
+            <div class="btn-group" uib-dropdown keyboard-nav>
+                
+                <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" uib-dropdown-toggle>
+                    Departure City <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+                    <li ng-repeat="city in departureCity" role="menuitem">
+                      {{city}}
+                    </li>
+                </ul>
+            </div>
+
+            To:
+            <div class="btn-group" uib-dropdown keyboard-nav>
+                
+                <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" uib-dropdown-toggle>
+                    Arrival City <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+                    <li ng-repeat="city in arrivalCity" role="menuitem">
+                      {{city}}
+                    </li>
+                </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="input-group">
+              <input type="radio" ng-model="selectedRoute" value="cheapest" ng-change="routeChanged()"> Cheapest
+              <input type="radio" ng-model="selectedRoute" value="fastest" ng-change="routeChanged()"> Fastest
+              <input type="radio" ng-model="selectedRoute" value="all" ng-change="routeChanged()"> All
+            </div><!-- /input-group -->
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    
+
+    
+
+
+  </div>
+
+  <script src="./bower_components/angular/angular.min.js" type="text/javascript"></script>
+  <script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
+  <script src="./bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+  <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="app.js" type="text/javascript"></script>
+  <script src="components/home/home-controller.js" type="text/javascript"></script>
+  <script src="shared/request-module/request-service.js" type="text/javascript"></script>
+
+</body>
+
+</html>
