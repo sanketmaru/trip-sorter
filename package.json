@@ -4,7 +4,16 @@
   "description": "Trip Sorter",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "postinstall": "bower install"
+  },
+  "dependencies": {
+    "bower": "1.7.1",
+    "express": "4.13.3"
+  },
+  "cacheDirectories": ["node_modules"],
+  "engines": {
+    "node": "5.1.0",
+    "npm": "3.4.1"
   },
   "repository": {
     "type": "git",

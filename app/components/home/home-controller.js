@@ -12,15 +12,15 @@ angular.module('TripSorter')
       'fastest' : 'fastest' 
     };
 
+    $scope.showDeals = false;
+
     $scope.selectedRoute = $scope.routesType.cheapest;  
 
     initCities();
     init();
 
     $scope.routeChanged = function() {
-      console.log('current route is ', $scope.selectedRoute);
-      console.log('dep ', $scope.depCity);
-      console.log('arr ', $scope.arrCity);
+      $scope.currentDeals = getCurrentDeals();
     };
 
     $scope.changeDepartureCity = function(city) {
@@ -33,12 +33,12 @@ angular.module('TripSorter')
 
     $scope.reset = function() {
       initCities();
+      $scope.showDeals = false;
     };
 
-    $scope.search = function() {
-      
+    $scope.search = function() {      
       $scope.currentDeals = getCurrentDeals();
-      
+      $scope.showDeals = true;
     };
 
     $scope.getFare = function(deal) {
