@@ -69,6 +69,43 @@
       </div>
     </div>
 
+
+
+
+    <div ng-repeat="deal in currentDeals" class="panel panel-default">
+      
+      <div class="panel-body">
+
+        <div  class="row">
+
+          <div class="col-xs-6 col-md-6">
+            {{deal.departure}} -> {{deal.arrival}}
+          </div>
+
+          <div class="col-xs-6 col-md-6">
+            {{deal.transport}} {{deal.reference}} for {{deal.duration.h}}{{deal.duration.m}}
+          </div>                   
+
+        </div>
+
+      </div>
+
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col-md-4">
+            Total
+          </div>
+          <div class="col-md-4">
+            {{deal.duration.h}}{{deal.duration.m}}
+          </div>
+          <div class="col-md-4">
+            {{getFare(deal)}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     
 
     

@@ -5,6 +5,7 @@ angular.module('TripSorter')
     var init = init;
     var initCities = initCities;
     var ctrl = this;
+
     $scope.routesType = {
       'all' : 'all',
       'cheapest' : 'cheapest',
@@ -40,6 +41,10 @@ angular.module('TripSorter')
       
     };
 
+    $scope.getFare = function(deal) {
+      return deal.cost - deal.discount;
+    }
+
     function init() {
       RequestService.get('response.json')
         .then(function(response){
@@ -62,12 +67,12 @@ angular.module('TripSorter')
       
       var deals = [];
 
-      if(!$scope.depCity) {
+      if($scope.depCity === 'Departure City') {
         alert('Please select departure city'); //TODO toaster can be used to make look better
         return;
       }
 
-      if(!$scope.arrCity) {
+      if($scope.arrCity === 'Arrival City') {
         alert('Please select arrival city'); //TODO toaster can be used to make look better
         return;
       }
@@ -87,6 +92,7 @@ angular.module('TripSorter')
           var fare = currentDeal.cost - currentDeal.discount;
           if(fare <  initialFare) {
             cheapestDeal = currentDeal;
+            initialFare = fare;
           }
         });
         deals.push(cheapestDeal);
@@ -100,12 +106,15 @@ angular.module('TripSorter')
           var durationInMin = ( currentDeal.duration.h * 60 ) + (currentDeal.duration.m);
           if(durationInMin <  initialDurationInMin) {
             fastestDeal = currentDeal;
+            initialDurationInMin = durationInMin;
           }
         });
         deals.push(fastestDeal);
       }
 
-      deals = currentDeals;
+      if($scope.selectedRoute === $scope.routesType.all) {
+        deals = currentDeals;
+      }
 
       return deals;
     }
